@@ -6,9 +6,20 @@ server {
         proxy_set_header Host      flibusta.is;
         proxy_set_header X-Real-IP $remote_addr;
         add_header X-Robots-Tag    noindex;
-        # proxy_redirect http://static.flibusta.is:443/ http://stat-flibusta.MYDOMEN.ru/;
+        proxy_redirect http://static.flibusta.is:443/ http://flibusto-stat.herokuapp.com/;
 
     }
 
   }
 
+# server {
+#     listen $PORT default_server;
+
+#     location / {
+#         proxy_pass                 http://static.flibusta.is:443;
+#         proxy_set_header Host      static.flibusta.is;
+#         proxy_set_header X-Real-IP $remote_addr;
+#         add_header X-Robots-Tag    noindex;
+#         proxy_set_header Referer "";
+#     }
+# }
