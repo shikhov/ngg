@@ -11,7 +11,7 @@ server {
     }
 
     location /stat/ {
-        rewrite /stat/(.*) /$1  break;
+        rewrite (:\d+)?/stat/(.*) /$2  break;
         proxy_pass                 http://static.flibusta.is:443;
         proxy_set_header Host      static.flibusta.is;
         proxy_set_header X-Real-IP $remote_addr;
